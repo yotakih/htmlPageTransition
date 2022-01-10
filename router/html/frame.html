@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="frame.css" rel="stylesheet" />
+    <script type="text/javascript" src="frame.js"></script>
+
+    <title>test</title>
+  </head>
+
+  <body>
+    <article>
+      <h2>frame1 hoge fuga</h2>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>
+        <!-- <button onclick="addframe()">add frame</button> -->
+        <a class="addframe" href="frame2.html" target="iframe">frame2を次ページで開く</a>
+        <form method="POST" action="/nodejs/testpost" target="iframe">
+          <input class="addframe" type="submit" value="submit" />
+        </form>
+      </div>
+      <div id="iframearea"></div>
+    </article>
+  </body>
+  <script type="text/javascript">
+    $(function () {
+      $(".addframe").attr("target", "iframe");
+      $(".addframe").on("click", function () {
+        console.log("add frame");
+        $("#iframearea").append('<iframe id="iframe" name="iframe"></iframe>');
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="frame.css" rel="stylesheet" />
+    <script type="text/javascript" src="frame.js"></script>
+
+    <title>test</title>
+    <script type="text/javascript"></script>
+  </head>
+
+  <body style="background-color: white">
+    <h2>frame2</h2>
+    <div>
+      <a class="addframe" href="frame3.html" target="iframe2">frame3を次ページで開く</a>
+      <br />
+      <a href="frame3.html" target="_self">frame3を開く</a>
+      <br />
+      <a href="frame3.html">frame3をルートで開く</a>
+      <br />
+      <button onclick="prev()">戻る</button>
+    </div>
+    <div id="iframearea"></div>
+  </body>
+  <script type="text/javascript">
+    $(function () {
+      $(".addframe").attr("target", "iframe2");
+      $(".addframe").on("click", function () {
+        console.log("add frame");
+        $("#iframearea").append('<iframe id="iframe" name="iframe2"></iframe>');
+      });
+    });
+  </script>
+</html>
